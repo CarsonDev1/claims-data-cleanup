@@ -4,6 +4,10 @@
     "issue_type": "missing_claim_id"
   },
   {
+    "row_index": 185,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
     "row_index": 43,
     "issue_type": "missing_policy_id"
   },
@@ -38,6 +42,10 @@
   {
     "row_index": 313,
     "issue_type": "invalid_date"
+  },
+  {
+    "row_index": 486,
+    "issue_type": "exact_duplicate_row"
   },
   {
     "row_index": 81,
@@ -76,8 +84,16 @@
     "issue_type": "missing_diagnosis"
   },
   {
+    "row_index": 289,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
     "row_index": 446,
     "issue_type": "missing_claim_id"
+  },
+  {
+    "row_index": 337,
+    "issue_type": "duplicate_claim_id"
   },
   {
     "row_index": 441,
@@ -108,6 +124,14 @@
     "issue_type": "invalid_date"
   },
   {
+    "row_index": 26,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 214,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
     "row_index": 157,
     "issue_type": "date_format_variant"
   },
@@ -128,6 +152,10 @@
     "issue_type": "amount_comma_format"
   },
   {
+    "row_index": 147,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
     "row_index": 320,
     "issue_type": "date_format_variant"
   },
@@ -138,6 +166,10 @@
   {
     "row_index": 60,
     "issue_type": "missing_claim_id"
+  },
+  {
+    "row_index": 460,
+    "issue_type": "duplicate_claim_id"
   },
   {
     "row_index": 67,
@@ -156,12 +188,20 @@
     "issue_type": "invalid_amount"
   },
   {
+    "row_index": 318,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
     "row_index": 391,
     "issue_type": "invalid_amount"
   },
   {
     "row_index": 129,
     "issue_type": "currency_variant"
+  },
+  {
+    "row_index": 6,
+    "issue_type": "duplicate_claim_id"
   },
   {
     "row_index": 234,
@@ -174,6 +214,14 @@
   {
     "row_index": 437,
     "issue_type": "missing_policy_id"
+  },
+  {
+    "row_index": 255,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 278,
+    "issue_type": "exact_duplicate_row"
   },
   {
     "row_index": 413,
@@ -200,6 +248,10 @@
     "issue_type": "name_casing"
   },
   {
+    "row_index": 111,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
     "row_index": 301,
     "issue_type": "name_casing"
   },
@@ -212,8 +264,16 @@
     "issue_type": "missing_claim_id"
   },
   {
+    "row_index": 209,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
     "row_index": 226,
     "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 40,
+    "issue_type": "exact_duplicate_row"
   },
   {
     "row_index": 307,
@@ -224,12 +284,28 @@
     "issue_type": "currency_variant"
   },
   {
+    "row_index": 125,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
     "row_index": 280,
     "issue_type": "amount_comma_format"
   },
   {
+    "row_index": 142,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 317,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
     "row_index": 321,
     "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 285,
+    "issue_type": "exact_duplicate_row"
   },
   {
     "row_index": 419,
@@ -262,81 +338,5 @@
   {
     "row_index": 334,
     "issue_type": "date_format_variant"
-  },
-  {
-    "row_index": 500,
-    "issue_type": "duplicate_claim_id"
-  },
-  {
-    "row_index": 501,
-    "issue_type": "exact_duplicate_row"
-  },
-  {
-    "row_index": 502,
-    "issue_type": "duplicate_claim_id"
-  },
-  {
-    "row_index": 503,
-    "issue_type": "duplicate_claim_id"
-  },
-  {
-    "row_index": 504,
-    "issue_type": "exact_duplicate_row"
-  },
-  {
-    "row_index": 505,
-    "issue_type": "exact_duplicate_row"
-  },
-  {
-    "row_index": 506,
-    "issue_type": "exact_duplicate_row"
-  },
-  {
-    "row_index": 507,
-    "issue_type": "duplicate_claim_id"
-  },
-  {
-    "row_index": 508,
-    "issue_type": "duplicate_claim_id"
-  },
-  {
-    "row_index": 509,
-    "issue_type": "duplicate_claim_id"
-  },
-  {
-    "row_index": 510,
-    "issue_type": "duplicate_claim_id"
-  },
-  {
-    "row_index": 511,
-    "issue_type": "exact_duplicate_row"
-  },
-  {
-    "row_index": 512,
-    "issue_type": "exact_duplicate_row"
-  },
-  {
-    "row_index": 513,
-    "issue_type": "duplicate_claim_id"
-  },
-  {
-    "row_index": 514,
-    "issue_type": "exact_duplicate_row"
-  },
-  {
-    "row_index": 515,
-    "issue_type": "duplicate_claim_id"
-  },
-  {
-    "row_index": 516,
-    "issue_type": "exact_duplicate_row"
-  },
-  {
-    "row_index": 517,
-    "issue_type": "exact_duplicate_row"
-  },
-  {
-    "row_index": 518,
-    "issue_type": "exact_duplicate_row"
   }
 ]

@@ -75,7 +75,7 @@ dates, and exact-duplicate rows. Every injection is recorded in `data/_ground_tr
 2. **Reconciliation** — `rows_before == rows_after_clean + exact_duplicates_removed + quarantined`.
 
 Latest run (seed 42): `VERIFY OK: all 12 injected issue types detected; reconciliation holds.`
-519 dirty rows → 503 clean + 6 quarantined + 10 exact duplicates removed. See
+500 dirty rows → 484 clean + 6 quarantined + 10 exact duplicates removed. See
 [`reports/quality_report.md`](reports/quality_report.md) for the full breakdown.
 
 ## Testing

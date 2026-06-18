@@ -10,7 +10,7 @@ def test_deterministic():
 
 def test_row_count_and_columns():
     rows, _ = generate_dataset(42, n=500)
-    assert len(rows) >= 500  # exact/duplicate-id injections append a few rows
+    assert len(rows) == 500  # duplicates are injected in place, not appended
     assert all(set(r.keys()) == set(COLUMNS) for r in rows)
 
 

@@ -8,7 +8,7 @@
 - **Deliverables (committed):** `data/claims_dirty.csv`, `data/claims_clean.csv`,
   `data/claims_quarantine.csv`, `data/_ground_truth.json`, `reports/quality_report.md`,
   `README.md`.
-- **Latest run (seed 42):** 519 dirty rows → 503 clean + 6 quarantined + 10 exact
+- **Latest run (seed 42):** 500 dirty rows → 484 clean + 6 quarantined + 10 exact
   duplicates removed.
 
 ## Decision Log

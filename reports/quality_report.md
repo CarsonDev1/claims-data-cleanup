@@ -1,7 +1,7 @@
 # Data Quality Report
 
-- **Rows before cleaning:** 519
-- **Rows after cleaning:** 503
+- **Rows before cleaning:** 500
+- **Rows after cleaning:** 484
 - **Exact duplicates removed:** 10
 - **Rows quarantined:** 6
 - **Rows with at least one issue:** 94
@@ -21,30 +21,30 @@
 - `name_casing`: 3
 
 ## Claims by type
-- DENTAL: 65
-- INPATIENT: 94
-- MATERNITY: 37
-- OUTPATIENT: 307
+- DENTAL: 62
+- INPATIENT: 90
+- MATERNITY: 36
+- OUTPATIENT: 296
 
 ## Claims by status
-- APPROVED: 264
-- IN_REVIEW: 55
-- PENDING: 97
-- REJECTED: 87
+- APPROVED: 258
+- IN_REVIEW: 54
+- PENDING: 91
+- REJECTED: 81
 
 ## Average amount by type (per currency)
-- DENTAL (THB): 11,428.80
-- DENTAL (VND): 25,678.07
-- INPATIENT (THB): 11,726.51
-- INPATIENT (VND): 16,886.60
+- DENTAL (THB): 11,283.29
+- DENTAL (VND): 27,283.14
+- INPATIENT (THB): 12,252.91
+- INPATIENT (VND): 16,644.00
 - MATERNITY (THB): 12,046.07
-- MATERNITY (VND): 17,176.89
-- OUTPATIENT (THB): 15,450.85
-- OUTPATIENT (VND): 15,346.44
+- MATERNITY (VND): 18,956.12
+- OUTPATIENT (THB): 15,428.58
+- OUTPATIENT (VND): 15,454.64
 
 ## Top 5 diagnoses
-- Migraine: 50
-- Asthma: 45
-- Fracture: 38
-- Gastritis: 37
-- Lower back pain: 35
+- Migraine: 49
+- Asthma: 44
+- Gastritis: 36
+- Fracture: 35
+- Lower back pain: 34

@@ -1,6 +1,8 @@
 """Deterministic generator for a realistic but intentionally messy claims dataset.
 
-Returns (rows, ground_truth). The ground-truth log records every injected issue as
+Returns (rows, ground_truth) with exactly `n` rows. Duplicate issues are injected
+*in place* (a target row is overwritten to duplicate another row) so the dataset
+size stays exactly `n`. The ground-truth log records every injected issue as
 {"row_index": int, "issue_type": str} so the cleaner's detection can be verified.
 """
 
@@ -42,6 +44,10 @@ def generate_dataset(seed, n=500):
 
     n_issue = int(n * 0.17)
     targets = rng.sample(range(n), n_issue)
+    target_set = set(targets)
+    # source rows for duplicate injections are clean, non-target rows so they are
+    # never themselves modified later
+    non_targets = [i for i in range(n) if i not in target_set]
     # round-robin the first len(_ISSUE_KINDS) targets for guaranteed coverage,
     # then a random kind for the remainder
     kinds = [_ISSUE_KINDS[i] if i < len(_ISSUE_KINDS) else rng.choice(_ISSUE_KINDS)
@@ -50,7 +56,6 @@ def generate_dataset(seed, n=500):
     def log(idx, issue_type):
         gt.append({"row_index": idx, "issue_type": issue_type})
 
-    extra = []  # rows appended after the loop (exact dup / duplicate claim_id)
     for idx, kind in zip(targets, kinds):
         r = rows[idx]
         if kind == "missing_claim_id":
@@ -76,17 +81,11 @@ def generate_dataset(seed, n=500):
         elif kind == "invalid_date":
             r["submitted_date"] = "31/02/2024"
         elif kind == "exact_duplicate_row":
-            extra.append((dict(r), "exact_duplicate_row"))
-            continue
+            src = rng.choice(non_targets)
+            rows[idx] = dict(rows[src])  # exact copy -> a duplicate pair; size unchanged
         elif kind == "duplicate_claim_id":
-            clone = _clean_row(rng, idx + 1)
-            clone["claim_id"] = r["claim_id"]  # same id, different data
-            extra.append((clone, "duplicate_claim_id"))
-            continue
+            src = rng.choice(non_targets)
+            rows[idx]["claim_id"] = rows[src]["claim_id"]  # same id, other data differs
         log(idx, kind)
-
-    for r, issue_type in extra:
-        rows.append(r)
-        log(len(rows) - 1, issue_type)
 
     return rows, gt
