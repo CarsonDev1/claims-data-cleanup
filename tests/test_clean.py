@@ -104,6 +104,15 @@ def test_invalid_amount_quarantined_not_in_clean():
     assert r.quarantine_rows[0]["quarantine_reason"] == "invalid_amount"
 
 
+def test_invalid_date_flagged_but_kept_in_clean():
+    # Per the brief, only invalid amounts are removed; an unparseable date is
+    # flagged and the row kept, with the date normalized to null.
+    r = clean_dataset([_row(submitted_date="31/02/2024")])
+    assert len(r.clean_rows) == 1 and len(r.quarantine_rows) == 0
+    assert r.clean_rows[0]["submitted_date"] is None
+    assert any(i.issue_type == "invalid_date" for i in r.detected_issues)
+
+
 def test_duplicate_claim_id_flagged_but_kept():
     r = clean_dataset([_row(claim_id="CLM-9"), _row(claim_id="CLM-9", member_name="Jane Roe")])
     assert len(r.clean_rows) == 2  # different data -> both kept

@@ -172,11 +172,12 @@ def clean_dataset(rows):
         for reason in reasons:
             issues.append(DetectedIssue(idx, reason))
 
-        # quarantine unusable records (audit trail) rather than dropping them
+        # Per the brief, only invalid amounts (negative/zero/unparseable) are removed;
+        # they are quarantined with a reason (audit trail) rather than deleted. Every
+        # other issue, including an unparseable date, is flagged and the row kept with
+        # the offending value normalized to null.
         if amt is None or "invalid_amount" in reasons:
             quarantine_rows.append({**out, "quarantine_reason": "invalid_amount"})
-        elif dt is None:
-            quarantine_rows.append({**out, "quarantine_reason": "invalid_date"})
         else:
             clean_rows.append(out)
 
