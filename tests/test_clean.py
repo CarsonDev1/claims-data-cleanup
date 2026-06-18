@@ -1,4 +1,7 @@
-from claims_cleanup.clean import parse_amount, parse_date
+from claims_cleanup.clean import (
+    parse_amount, parse_date, normalize_null, normalize_name,
+    map_claim_type, map_currency, validate_status,
+)
 
 
 def test_parses_plain_number():
@@ -47,3 +50,35 @@ def test_impossible_date_flagged():
 
 def test_garbage_flagged():
     assert parse_date("not a date") == (None, ["invalid_date"])
+
+
+def test_normalize_null_variants():
+    assert normalize_null("N/A") is None
+    assert normalize_null("n/a") is None
+    assert normalize_null("") is None
+    assert normalize_null("  Flu ") == "Flu"
+
+
+def test_name_titlecase_flags_change():
+    assert normalize_name("JOHN DOE") == ("John Doe", ["name_casing"])
+    assert normalize_name("John Doe") == ("John Doe", [])
+
+
+def test_claim_type_typo_mapped():
+    assert map_claim_type("Outpateint") == ("OUTPATIENT", ["claim_type_typo"])
+    assert map_claim_type("OP") == ("OUTPATIENT", ["claim_type_typo"])
+    assert map_claim_type("OUTPATIENT") == ("OUTPATIENT", [])
+    assert map_claim_type("xyz") == (None, ["claim_type_typo"])
+
+
+def test_currency_variants():
+    assert map_currency("Baht") == ("THB", ["currency_variant"])
+    assert map_currency("vnd") == ("VND", ["currency_variant"])
+    assert map_currency("THB") == ("THB", [])
+    assert map_currency("eur") == (None, ["currency_variant"])
+
+
+def test_status_enum():
+    assert validate_status("approved") == ("APPROVED", [])
+    assert validate_status("APPROVED") == ("APPROVED", [])
+    assert validate_status("weird") == (None, ["status_out_of_enum"])
