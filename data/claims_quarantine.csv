@@ -1,0 +1,7 @@
+claim_id,policy_id,member_name,claim_type,diagnosis,submitted_amount,currency,submitted_date,status,quarantine_reason
+CLM-00002,POL-132,John Roe,OUTPATIENT,Fracture,0.0,THB,2024-12-18,APPROVED,invalid_amount
+CLM-00373,POL-735,Nok Nguyen,DENTAL,Dental caries,-100.0,THB,2024-12-20,APPROVED,invalid_amount
+CLM-00392,POL-383,Wei Tan,INPATIENT,Appendicitis,0.0,THB,2024-05-16,REJECTED,invalid_amount
+CLM-00423,POL-325,Mai Chen,OUTPATIENT,Appendicitis,0.0,VND,2024-04-10,APPROVED,invalid_amount
+CLM-00442,POL-741,Somchai Tan,OUTPATIENT,Hypertension,0.0,THB,2024-09-09,APPROVED,invalid_amount
+CLM-00452,POL-112,Jane Nguyen,OUTPATIENT,Gastritis,-100.0,THB,2024-11-07,APPROVED,invalid_amount

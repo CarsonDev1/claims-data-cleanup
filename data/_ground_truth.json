@@ -1,0 +1,342 @@
+[
+  {
+    "row_index": 324,
+    "issue_type": "missing_claim_id"
+  },
+  {
+    "row_index": 43,
+    "issue_type": "missing_policy_id"
+  },
+  {
+    "row_index": 268,
+    "issue_type": "name_casing"
+  },
+  {
+    "row_index": 362,
+    "issue_type": "claim_type_typo"
+  },
+  {
+    "row_index": 196,
+    "issue_type": "missing_diagnosis"
+  },
+  {
+    "row_index": 372,
+    "issue_type": "invalid_amount"
+  },
+  {
+    "row_index": 405,
+    "issue_type": "amount_comma_format"
+  },
+  {
+    "row_index": 499,
+    "issue_type": "currency_variant"
+  },
+  {
+    "row_index": 261,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 313,
+    "issue_type": "invalid_date"
+  },
+  {
+    "row_index": 81,
+    "issue_type": "missing_diagnosis"
+  },
+  {
+    "row_index": 193,
+    "issue_type": "missing_claim_id"
+  },
+  {
+    "row_index": 281,
+    "issue_type": "missing_policy_id"
+  },
+  {
+    "row_index": 194,
+    "issue_type": "missing_claim_id"
+  },
+  {
+    "row_index": 22,
+    "issue_type": "invalid_date"
+  },
+  {
+    "row_index": 393,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 87,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 467,
+    "issue_type": "claim_type_typo"
+  },
+  {
+    "row_index": 171,
+    "issue_type": "missing_diagnosis"
+  },
+  {
+    "row_index": 446,
+    "issue_type": "missing_claim_id"
+  },
+  {
+    "row_index": 441,
+    "issue_type": "invalid_amount"
+  },
+  {
+    "row_index": 76,
+    "issue_type": "missing_policy_id"
+  },
+  {
+    "row_index": 83,
+    "issue_type": "missing_policy_id"
+  },
+  {
+    "row_index": 444,
+    "issue_type": "invalid_date"
+  },
+  {
+    "row_index": 74,
+    "issue_type": "claim_type_typo"
+  },
+  {
+    "row_index": 91,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 364,
+    "issue_type": "invalid_date"
+  },
+  {
+    "row_index": 157,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 158,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 373,
+    "issue_type": "currency_variant"
+  },
+  {
+    "row_index": 492,
+    "issue_type": "missing_policy_id"
+  },
+  {
+    "row_index": 228,
+    "issue_type": "amount_comma_format"
+  },
+  {
+    "row_index": 320,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 92,
+    "issue_type": "missing_diagnosis"
+  },
+  {
+    "row_index": 60,
+    "issue_type": "missing_claim_id"
+  },
+  {
+    "row_index": 67,
+    "issue_type": "claim_type_typo"
+  },
+  {
+    "row_index": 491,
+    "issue_type": "missing_diagnosis"
+  },
+  {
+    "row_index": 103,
+    "issue_type": "missing_diagnosis"
+  },
+  {
+    "row_index": 1,
+    "issue_type": "invalid_amount"
+  },
+  {
+    "row_index": 391,
+    "issue_type": "invalid_amount"
+  },
+  {
+    "row_index": 129,
+    "issue_type": "currency_variant"
+  },
+  {
+    "row_index": 234,
+    "issue_type": "claim_type_typo"
+  },
+  {
+    "row_index": 254,
+    "issue_type": "amount_comma_format"
+  },
+  {
+    "row_index": 437,
+    "issue_type": "missing_policy_id"
+  },
+  {
+    "row_index": 413,
+    "issue_type": "claim_type_typo"
+  },
+  {
+    "row_index": 2,
+    "issue_type": "missing_diagnosis"
+  },
+  {
+    "row_index": 311,
+    "issue_type": "currency_variant"
+  },
+  {
+    "row_index": 451,
+    "issue_type": "invalid_amount"
+  },
+  {
+    "row_index": 252,
+    "issue_type": "currency_variant"
+  },
+  {
+    "row_index": 121,
+    "issue_type": "name_casing"
+  },
+  {
+    "row_index": 301,
+    "issue_type": "name_casing"
+  },
+  {
+    "row_index": 243,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 232,
+    "issue_type": "missing_claim_id"
+  },
+  {
+    "row_index": 226,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 307,
+    "issue_type": "invalid_date"
+  },
+  {
+    "row_index": 3,
+    "issue_type": "currency_variant"
+  },
+  {
+    "row_index": 280,
+    "issue_type": "amount_comma_format"
+  },
+  {
+    "row_index": 321,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 419,
+    "issue_type": "claim_type_typo"
+  },
+  {
+    "row_index": 422,
+    "issue_type": "invalid_amount"
+  },
+  {
+    "row_index": 106,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 25,
+    "issue_type": "missing_diagnosis"
+  },
+  {
+    "row_index": 94,
+    "issue_type": "claim_type_typo"
+  },
+  {
+    "row_index": 75,
+    "issue_type": "currency_variant"
+  },
+  {
+    "row_index": 28,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 334,
+    "issue_type": "date_format_variant"
+  },
+  {
+    "row_index": 500,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 501,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 502,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 503,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 504,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 505,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 506,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 507,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 508,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 509,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 510,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 511,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 512,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 513,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 514,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 515,
+    "issue_type": "duplicate_claim_id"
+  },
+  {
+    "row_index": 516,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 517,
+    "issue_type": "exact_duplicate_row"
+  },
+  {
+    "row_index": 518,
+    "issue_type": "exact_duplicate_row"
+  }
+]
