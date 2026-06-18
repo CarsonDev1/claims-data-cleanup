@@ -1,8 +1,10 @@
 """Pure cleaning, normalization, and validation functions (no file I/O)."""
 
+from collections import Counter
+from dataclasses import dataclass
 from datetime import datetime
 
-from claims_cleanup.constants import CLAIM_TYPES, CLAIM_TYPE_MAP, CURRENCY_MAP, STATUSES
+from claims_cleanup.constants import CLAIM_TYPES, CLAIM_TYPE_MAP, COLUMNS, CURRENCY_MAP, STATUSES
 
 # Accepted input formats, tried in order. Slash dates are DAY-FIRST (DD/MM/YYYY),
 # matching the source data's locale — never left to a library's locale guess.
@@ -95,3 +97,87 @@ def validate_status(raw):
     s = normalize_null(raw)
     up = s.upper() if s else None
     return (up, []) if up in STATUSES else (None, ["status_out_of_enum"])
+
+
+@dataclass
+class DetectedIssue:
+    row_index: int
+    issue_type: str
+
+
+@dataclass
+class CleanResult:
+    clean_rows: list
+    quarantine_rows: list
+    detected_issues: list
+    duplicates_removed: int
+    rows_before: int
+
+
+def clean_dataset(rows):
+    """Clean a list of raw row dicts and return a CleanResult.
+
+    Order: trim -> drop exact-duplicate rows (counted) -> per-row normalize and
+    validate (collecting issues) -> flag duplicate claim_ids (kept, not removed) ->
+    quarantine rows with an invalid amount or an unparseable date.
+    """
+    rows_before = len(rows)
+    trimmed = [{k: (v.strip() if isinstance(v, str) else v) for k, v in r.items()} for r in rows]
+
+    # 1. exact duplicates: keep first occurrence, drop and count the rest
+    seen, kept, dup_count, issues = set(), [], 0, []
+    for idx, r in enumerate(trimmed):
+        key = tuple(r.get(c) for c in COLUMNS)
+        if key in seen:
+            dup_count += 1
+            issues.append(DetectedIssue(idx, "exact_duplicate_row"))
+        else:
+            seen.add(key)
+            kept.append((idx, r))
+
+    # 2. duplicate claim_id among kept rows (different data) -> flag but keep
+    id_counts = Counter(r.get("claim_id") for _, r in kept if r.get("claim_id"))
+
+    clean_rows, quarantine_rows = [], []
+    for idx, r in kept:
+        out, reasons = {}, []
+        cid = r.get("claim_id")
+        if not cid:
+            reasons.append("missing_claim_id")
+        elif id_counts[cid] > 1:
+            reasons.append("duplicate_claim_id")
+        out["claim_id"] = cid or None
+        out["policy_id"] = r.get("policy_id") or None
+        if not out["policy_id"]:
+            reasons.append("missing_policy_id")
+        out["member_name"], ni = normalize_name(r.get("member_name"))
+        reasons += ni
+        out["claim_type"], ci = map_claim_type(r.get("claim_type"))
+        reasons += ci
+        diag = normalize_null(r.get("diagnosis"))
+        out["diagnosis"] = diag
+        if diag is None:
+            reasons.append("missing_diagnosis")
+        amt, ai = parse_amount(r.get("submitted_amount"))
+        out["submitted_amount"] = amt
+        reasons += ai
+        out["currency"], cui = map_currency(r.get("currency"))
+        reasons += cui
+        dt, di = parse_date(r.get("submitted_date"))
+        out["submitted_date"] = dt
+        reasons += di
+        out["status"], si = validate_status(r.get("status"))
+        reasons += si
+
+        for reason in reasons:
+            issues.append(DetectedIssue(idx, reason))
+
+        # quarantine unusable records (audit trail) rather than dropping them
+        if amt is None or "invalid_amount" in reasons:
+            quarantine_rows.append({**out, "quarantine_reason": "invalid_amount"})
+        elif dt is None:
+            quarantine_rows.append({**out, "quarantine_reason": "invalid_date"})
+        else:
+            clean_rows.append(out)
+
+    return CleanResult(clean_rows, quarantine_rows, issues, dup_count, rows_before)
